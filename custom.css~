@@ -1,0 +1,22 @@
+html, body {
+	min-height: 100%;
+}
+
+.text-box {
+margin: 0px; height: 77px; width: 429px;
+}
+
+
+.list-box{
+background-color: #f1f1f1;
+    padding: 0.01em 16px;
+    width:300px;
+}
+
+.check-with-label + .label-for-check {
+  
+color: rgba(0,0,0,.54);
+    text-decoration: line-through;
+}
+
+</style>

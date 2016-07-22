@@ -1,0 +1,54 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<form>
+    <label>
+      Task Name:
+      <input id="new-task-input" type="text" placeholder="enter task here" onkeypress="return runScript(event)">
+    </label>
+    <button type="button" id="add-task-button">
+      Add Task
+    </button>
+ </form>
+  <ul id="todolist-container">
+  </ul>
+
+  <div id="itemList"></div>
+</body>
+
+<script type="text/template" id="list-item-template">
+<li>
+  <label>
+    <input type="checkbox">
+    <!-- TASK_NAME -->
+	  </label>
+</li>
+</script>
+
+<script>
+    var addTaskButton = document.getElementById("add-task-button");
+    var newTaskInput = document.getElementById("new-task-input");
+    var todolistContainer = document.getElementById("todolist-container");
+    var templateElement = document.getElementById("list-item-template");
+    var template = templateElement.innerHTML;
+    
+    function runScript(event) {
+    if (event.which == 13 || event.keyCode == 13) {
+        var taskName = newTaskInput.value;
+	    newTaskInput.value = "";
+      var taskHTML = template.replace("<!-- TASK_NAME -->", taskName);
+	 todolistContainer.insertAdjacentHTML('afterbegin', taskHTML);
+        return false;
+    }
+    return true;
+    };
+    addTaskButton.addEventListener('click', function(event) {
+        var taskList = document.getElementById("itemList");
+        console.log(todolistContainer);
+        taskList.innerHTML= todolistContainer.innerHTML;
+        todolistContainer.innerHTML="";
+     });
+  </script>
+</html>
